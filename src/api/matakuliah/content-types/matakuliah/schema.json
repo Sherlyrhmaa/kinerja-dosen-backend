@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "matakuliahs",
+  "info": {
+    "singularName": "matakuliah",
+    "pluralName": "matakuliahs",
+    "displayName": "matakuliah"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nama_matakuliah": {
+      "type": "string",
+      "required": true
+    },
+    "kelas": {
+      "type": "string",
+      "required": true
+    },
+    "dosens": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::dosen.dosen",
+      "mappedBy": "matakuliahs"
+    },
+    "kinerja_dosens": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::kinerja-dosen.kinerja-dosen",
+      "mappedBy": "matakuliah"
+    }
+  }
+}

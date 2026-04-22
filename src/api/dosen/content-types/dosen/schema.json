@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dosens",
+  "info": {
+    "singularName": "dosen",
+    "pluralName": "dosens",
+    "displayName": "dosen"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nidn": {
+      "type": "string",
+      "required": true
+    },
+    "nama_dosen": {
+      "type": "string",
+      "required": true
+    },
+    "penelitian": {
+      "type": "boolean"
+    },
+    "file_penelitian": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "pengabdian": {
+      "type": "boolean"
+    },
+    "file_pengabdian": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "kinerja_dosens": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::kinerja-dosen.kinerja-dosen",
+      "mappedBy": "dosen"
+    },
+    "matakuliahs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::matakuliah.matakuliah",
+      "inversedBy": "dosens"
+    }
+  }
+}
