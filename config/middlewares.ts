@@ -1,6 +1,4 @@
-import type { Core } from '@strapi/strapi';
-
-const config: Core.Config.Middlewares = [
+export default [
   'strapi::logger',
   'strapi::errors',
   {
@@ -22,7 +20,7 @@ const config: Core.Config.Middlewares = [
     config: {
       enabled: true,
       headers: '*',
-      origin: ['http://localhost:3000', 'https://*.vercel.app'],
+      origin: ['http://localhost:3000', 'https://kinerja-dosen-frontend.vercel.app'],
     },
   },
   'strapi::poweredBy',
@@ -32,5 +30,3 @@ const config: Core.Config.Middlewares = [
   'strapi::favicon',
   'strapi::public',
 ];
-
-export default config;
