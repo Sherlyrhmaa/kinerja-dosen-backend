@@ -5,11 +5,15 @@ export default [
   {
     name: 'strapi::cors',
     config: {
-      origin: process.env.CORS_ORIGINS ? process.env.CORS_ORIGINS.split(',') : ['http://localhost:3000', 'http://localhost:1337'],
+      enabled: true,
+      origin: [
+        'http://localhost:3000',
+        'http://localhost:1337',
+        'https://kinerja-dosen-frontend.vercel.app'
+      ],
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
-      headers: ['Content-Type', 'Authorization', 'Origin', 'Accept', 'X-Requested-With'],
+      headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
       credentials: true,
-      keepHeadersOnError: true,
     },
   },
   'strapi::poweredBy',
